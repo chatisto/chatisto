@@ -19,5 +19,3 @@ development:
 test:
   <<: *default
   database: chatisto_test
-
-production: <%= ENV["DATABASE_URL"] %>

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center">Chatisto</h1>
+    <br>
+    <article>
+      <p class="text-justify">
+        Welcome to chatisto, a minimal, anonymous chat application. Rooms are created and joined by going to <strong>https://chatisto.com/rooms/your-chatroom</strong>. There are no room lists, so a secret room name can be used for private discussions. None of your messages are saved on the chatisto servers.
+      </p>
+      <br>
+      <p class="text-justify">
+        Here are some pre-made public rooms you can join:
+        <ul class="list-unstyled">
+          <% @public_rooms.each do |room| %>
+            <li><%= link_to room.url, room.url %></li>
+          <% end %>
+        </ul>
+      </p>
+      <br>
+      <p>
+        We also created a room just for you:
+        <ul class="list-unstyled">
+          <li><%= link_to @generated_room.url, @generated_room.url %></li>
+        </ul>
+      </p>
+    </article>
+  </div>
+</div>
