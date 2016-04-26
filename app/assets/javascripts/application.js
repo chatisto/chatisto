@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require action_cable
 //= require cookie
+//= require action_cable
+//= require material.min
+//= require ripples.min
 //= require_tree .

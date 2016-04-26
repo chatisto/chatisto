@@ -30,7 +30,6 @@ gem 'puma'
 gem 'dotenv-rails'
 gem 'rails_12factor', group: :production
 gem 'redis'
-gem 'sentry-raven'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -42,8 +41,8 @@ gem 'sentry-raven'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
