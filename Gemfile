@@ -30,6 +30,7 @@ gem 'puma'
 gem 'dotenv-rails'
 gem 'rails_12factor', group: :production
 gem 'redis'
+gem 'newrelic_rpm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
