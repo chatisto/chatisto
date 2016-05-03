@@ -1,5 +1,34 @@
 <h1 class="text-center" id="room-title"><%= @room.name %></h1>
-<div class="col-md-6 col-md-offset-3">
-  <div class="list-group" id="room-messages">
-  </div>
+<div class="row" id="room-messages">
+	<div class="col-md-offset-3 col-md-6">
+		<!-- TODO: repeat messages -->
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-3 room-username">
+				username
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-9 room-message">
+				message content
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row message-input">
+	<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+		<div class="form-group">
+		  <div class="input-group">
+		    <input type="text" class="form-control" placeholder="Message">
+		    <span class="input-group-btn">
+		      <button class="btn btn-default" type="button">
+		      	<%= fa_icon "paper-plane" %>
+		      </button>
+		      <button class="btn btn-default" type="button">
+		      	<%= fa_icon "smile-o" %>
+		      </button>
+		      <button class="btn btn-default" type="button">
+		      	<%= fa_icon "cloud-upload" %>
+		      </button>
+		    </span>
+		  </div>
+		</div>
+	</div>	
 </div>
