@@ -1,0 +1,42 @@
+#room-messages {
+    height: calc(100vh - 160px);
+    overflow-y: scroll;
+}
+.room-username {
+    font-weight: 900;
+}
+.room-username:after {
+	content: ":";
+}
+.message-input {
+    background-color: #D6D6D6;
+    border: 3px solid #000000;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.message-input .input-group {
+	background-color: #ffffff;
+	border: 3px solid #000000;
+}
+
+.message-input .form-group {
+    padding-bottom: 15px;
+    margin: 15px 0 0 0;
+}
+
+.message-input .input-group .input-group-btn {
+	padding: 0;
+}
+
+.message-input .input-group-btn .btn {
+	margin: 0;
+	padding: 12px 30px 13px;
+}
+
+.message-input .input-group input[type="text"] {
+	margin: 0 15px;
+    height: 45px;
+    background: none;
+}
