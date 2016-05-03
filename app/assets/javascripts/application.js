@@ -17,4 +17,5 @@
 //= require action_cable
 //= require material.min
 //= require ripples.min
+//= require validator.min
 //= require_tree .

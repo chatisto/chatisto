@@ -1,5 +1,3 @@
-require 'digest/sha1'
-
 class Room < ActiveRecord::Base
   include UrlHelper
 
@@ -7,11 +5,10 @@ class Room < ActiveRecord::Base
   scope :ordered, -> { order(:name) }
 
   def self.generate
-    name = Digest::SHA1.hexdigest(Time.now.to_f.to_s)[0..5]
-    create(name: name)
+    create(name: Haikunator.haikunate)
   end
 
   def url
-    url_generator.room_url(id: name)
+    url_generator.room_url(name)
   end
 end
