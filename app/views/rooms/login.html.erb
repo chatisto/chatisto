@@ -1,0 +1,17 @@
+<h1 class="text-center" id="login-title">Login to <strong><%= @room.name %></strong></h1>
+<div class="col-md-6 col-md-offset-3">
+  <form data-toggle="validator" id="login-form" data-room-path="<%= room_path(@room.name) %>" data-room-name="<%= @room.name %>">
+    <div class="form-group label-floating" id="login">
+      <label class="control-label" for="login-username">Choose a username</label>
+      <div class="input-group">
+        <input class="form-control" id="login-username" type="text" required data-minlength="4" data-delay="100">
+        <div class="help-block">Minimum of 4 characters</div>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-fab btn-fab-mini" id="login-submit">
+            <i class="material-icons">redo</i>
+          </button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>

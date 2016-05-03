@@ -24,8 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
-gem 'bootswatch-rails'
-gem 'font-awesome-rails'
 gem 'puma'
 gem 'dotenv-rails'
 gem 'rails_12factor', group: :production

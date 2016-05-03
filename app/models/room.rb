@@ -12,6 +12,6 @@ class Room < ActiveRecord::Base
   end
 
   def url
-    url_generator.room_url(id: name)
+    url_generator.room_url(name)
   end
 end
