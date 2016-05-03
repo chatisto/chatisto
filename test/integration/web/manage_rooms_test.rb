@@ -10,7 +10,7 @@ class ManageRoomsTest < ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
-  test "login from root path" do
+  test "login to a room" do
     room = rooms(:rough_winter)
     visit room_path(id: room.name)
     assert_equal "Login to #{room.name}", find("h1").text
@@ -26,5 +26,6 @@ class ManageRoomsTest < ActionDispatch::IntegrationTest
     find("#room-title")
 
     assert_equal room.name, find("h1").text
+    ActionCable.server.broadcast "room_channel_#{room.name}", username: "tester", message: "this is a message"
   end
 end

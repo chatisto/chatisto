@@ -9,7 +9,7 @@ $(document).on 'page:change', ->
         # Called when the subscription has been terminated by the server
       received: (data) ->
         # TODO: enable desktop notifications (notify(data["username", data["message"]) see app/assets/javascripts/notifcations.js)
-        # TODO: render messages
+        # TODO: render messages (use data["message"] and data["username"])
       speak: (message) ->
         @perform 'speak', message: message
   else if App.room

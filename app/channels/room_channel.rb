@@ -20,17 +20,22 @@ class RoomChannel < ApplicationCable::Channel
     ActionCable.server.broadcast(channel_name,
                                  username: username,
                                  message: message)
+    room.update! updated_at: Time.now
   end
 
   def channel_name
-    "room_channel_#{room}"
+    "room_channel_#{room_name}"
   end
 
   def username
     params[:username]
   end
 
-  def room
+  def room_name
     params[:room]
+  end
+
+  def room
+    Room.find_by!(name: room_name)
   end
 end

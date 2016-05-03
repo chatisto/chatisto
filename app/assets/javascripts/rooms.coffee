@@ -3,10 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # Link preview (in chat): https://github.com/Ekito/bootstrap-linkpreview/blob/master/library/js/bootstrap-linkpreview.js
-# TODO: request username
-# TODO: validate user input
-console.log "hallo"
-
 $(document).on 'page:change', ->
   $('#login-form').validator().on 'submit', (e) ->
     unless e.isDefaultPrevented()
