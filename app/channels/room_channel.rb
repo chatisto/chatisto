@@ -1,26 +1,31 @@
 # Be sure to restart your server when you modify this file. Action Cable runs in an EventMachine loop that does not support auto reloading.
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from channel_name
-    broadcast_message(username: "*",
+    broadcast_message(username: ":mega:",
                       message: "#{username} joined the room")
+    stream_from channel_name
   end
 
   def unsubscribed
-    broadcast_message(username: "*",
+    broadcast_message(username: ":mega:",
                       message: "#{username} left the room")
   end
 
   def speak(data)
     broadcast_message(username: username,
-                      message: data["message"])
+                      message: data["message"]) if data["message"].present?
   end
 
   def broadcast_message(username:, message:)
     ActionCable.server.broadcast(channel_name,
-                                 username: username,
-                                 message: message)
+                                 username: render_string(username),
+                                 message: render_string(message))
     room.update! updated_at: Time.now
+  end
+
+  def render_string(str)
+    escaped = ERB::Util.html_escape(str)
+    RailsEmoji.render(escaped, size: '18x18')
   end
 
   def channel_name

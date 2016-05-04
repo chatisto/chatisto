@@ -10,6 +10,7 @@ $(document).on 'page:change', ->
       received: (data) ->
         # TODO: enable desktop notifications (notify(data["username", data["message"]) see app/assets/javascripts/notifcations.js)
         # TODO: render messages (use data["message"] and data["username"])
+        document.getElementById("room-messages").innerHTML += "<li><strong> #{data["username"]}:</strong> #{data["message"]}</li>"
       speak: (message) ->
         @perform 'speak', message: message
   else if App.room

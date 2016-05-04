@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/chatisto/rails_emoji.git
+  revision: af5fa9d7dea255ffe69b29b115f417eb532b56ae
+  specs:
+    rails_emoji (1.8.0)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -93,7 +100,7 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    multi_json (1.11.3)
+    multi_json (1.12.0)
     newrelic_rpm (3.15.2.317)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
@@ -199,6 +206,7 @@ DEPENDENCIES
   puma
   rails (= 5.0.0.beta3)
   rails_12factor
+  rails_emoji!
   redis
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -5,13 +5,19 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by!(name: params[:id])
-    unless username_set?
+    if username_set?
+      @username = ERB::Util.html_escape(username).emojify.html_safe
+    else
       redirect_to login_room_path(@room.name)
     end
   end
 
   private
   def username_set?
-    @room && cookies["#{@room.name}_username"]
+    @room && username
+  end
+
+  def username
+    cookies["#{@room.name}_username"]
   end
 end
