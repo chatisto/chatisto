@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  include EmojiHelper
+
   def login
     @room = Room.find_by!(name: params[:id])
   end
@@ -6,7 +8,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find_by!(name: params[:id])
     if username_set?
-      @username = ERB::Util.html_escape(username).emojify.html_safe
+      @username = emojify(username)
     else
       redirect_to login_room_path(@room.name)
     end
