@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#room-messages {
+  height: calc(100vh - 160px);
+  overflow-y: scroll;
+}
