@@ -3,7 +3,7 @@ function notify(sender, message){
     Notification.requestPermission();
   }
   opts = {
-    icon: "/chatisto.jpg",
+    icon: "/favicon-96x96.png",
     body: message
   }
   title = sender + " said:"

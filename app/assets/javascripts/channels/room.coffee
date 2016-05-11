@@ -8,11 +8,10 @@ $(document).on 'page:change', ->
       disconnected: ->
         # Called when the subscription has been terminated by the server
       received: (data) ->
-        # TODO: enable desktop notifications (notify(data["username", data["message"]) see app/assets/javascripts/notifcations.js)
-        # TODO: render messages (use data["message"] and data["username"])
         messages = document.getElementById("room-messages")
         messages.innerHTML += "<li><strong> #{data["username"]}:</strong> #{data["message"]}</li>"
         messages.scrollTop = messages.scrollHeight
+        notify(data["plain_username"], data["message"]) if document.hidden
       speak: (message) ->
         @perform 'speak', message: message
   else if App.room

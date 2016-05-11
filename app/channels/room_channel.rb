@@ -21,6 +21,7 @@ class RoomChannel < ApplicationCable::Channel
   def broadcast_message(username:, message:)
     ActionCable.server.broadcast(channel_name,
                                  username: emojify(username),
+                                 plain_username: username,
                                  message: emojify(message))
     room.update! updated_at: Time.now
   end
