@@ -5,5 +5,5 @@ body {
 
 #room-messages {
   height: calc(100vh - 160px);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
