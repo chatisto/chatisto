@@ -22,7 +22,8 @@ class RoomChannel < ApplicationCable::Channel
     ActionCable.server.broadcast(channel_name,
                                  username: format_message(username, links: false),
                                  plain_username: username,
-                                 message: format_message(message))
+                                 message: format_message(message),
+                                 plain_message: message)
     room.update! updated_at: Time.now
   end
 

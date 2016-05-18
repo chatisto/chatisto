@@ -1,5 +1,6 @@
 $(document).on 'page:change', ->
   if title = document.getElementById("room-title")
+    Notification.requestPermission() if Notification.permission != 'denied'
     room = title.innerHTML
     username = Cookies.get(room + "_username")
     App.room = App.cable.subscriptions.create { channel: "RoomChannel", room: room, username: username },
@@ -11,7 +12,7 @@ $(document).on 'page:change', ->
         messages = document.getElementById("room-messages")
         messages.innerHTML += "<li><strong> #{data["username"]}:</strong> #{data["message"]}</li>"
         messages.scrollTop = messages.scrollHeight
-        notify(data["plain_username"], data["message"]) if document.hidden
+        notify(data["plain_username"], data["plain_message"]) if document.hidden
       speak: (message) ->
         @perform 'speak', message: message
   else if App.room
