@@ -26,3 +26,7 @@ $(document).on 'page:change', ->
   $('#emoji-button').on 'click', ->
     win = window.open('http://www.emoji-cheat-sheet.com/', '_blank')
     win.focus()
+
+window.addEventListener "focus", ->
+  input_field = document.getElementById('message-input')
+  input_field.focus() if input_field
