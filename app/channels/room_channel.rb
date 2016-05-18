@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file. Action Cable runs in an EventMachine loop that does not support auto reloading.
 class RoomChannel < ApplicationCable::Channel
-  include EmojiHelper
+  include MessageFormatHelper
 
   def subscribed
     broadcast_message(username: ":mega:",
@@ -20,9 +20,9 @@ class RoomChannel < ApplicationCable::Channel
 
   def broadcast_message(username:, message:)
     ActionCable.server.broadcast(channel_name,
-                                 username: emojify(username),
+                                 username: format_message(username, links: false),
                                  plain_username: username,
-                                 message: emojify(message))
+                                 message: format_message(message))
     room.update! updated_at: Time.now
   end
 

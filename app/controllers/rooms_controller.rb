@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  include EmojiHelper
+  include MessageFormatHelper
 
   def login
     @room = Room.find_by!(name: params[:id])
@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find_by!(name: params[:id])
     if username_set?
-      @username = emojify(username)
+      @username = format_message(username)
     else
       redirect_to login_room_path(@room.name)
     end
@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
 
   private
   def username_set?
-    @room && username
+    @room && username.present?
   end
 
   def username
