@@ -1,6 +1,4 @@
 class Room < ActiveRecord::Base
-  include UrlHelper
-
   validates :name, uniqueness: true
 
   scope :marked_public, -> { where(marked_public: true) }
@@ -13,9 +11,5 @@ class Room < ActiveRecord::Base
     else
       generate
     end
-  end
-
-  def url
-    url_generator.room_url(name)
   end
 end

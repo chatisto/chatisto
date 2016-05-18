@@ -11,7 +11,7 @@
         Here are some pre-made public rooms you can join:
         <ul class="list-unstyled">
           <% @public_rooms.each do |room| %>
-            <li><%= link_to room.url, room.url %></li>
+            <li><%= link_to room_url(room.name), room_path(room.name) %></li>
           <% end %>
         </ul>
       </p>
@@ -19,7 +19,7 @@
       <p>
         We also created a room just for you:
         <ul class="list-unstyled">
-          <li id="generated_room"><%= link_to @generated_room.url, @generated_room.url %></li>
+          <li id="generated_room"><%= link_to room_url(@generated_room.name), room_path(@generated_room.name) %></li>
         </ul>
       </p>
     </article>

@@ -12,6 +12,8 @@ class ManageRoomsTest < ActionDispatch::IntegrationTest
 
   test "full chat usecase" do
     room = rooms(:rough_winter)
+    visit root_path
+    click_on "#{current_url}rooms/#{room.name}"
     visit room_path(id: room.name)
     assert_equal "Login to #{room.name}", find("h1").text
     # enter invalid name (less than 4 characters)
