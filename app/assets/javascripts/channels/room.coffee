@@ -1,6 +1,9 @@
 $(document).on 'page:change', ->
   if title = document.getElementById("room-title")
-    Notification.requestPermission() if Notification.permission != 'denied'
+    try
+      Notification.requestPermission() if Notification.permission != 'denied'
+    catch err
+      # ignore smartphone notifications fail
     room = title.innerHTML
     username = Cookies.get(room + "_username")
     App.room = App.cable.subscriptions.create { channel: "RoomChannel", room: room, username: username },
