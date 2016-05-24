@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by!(name: params[:id])
+    @room = Room.find_by(name: params[:id]) || Room.create(name: params[:id])
     if username_set?
       @username = format_message(username)
     else
