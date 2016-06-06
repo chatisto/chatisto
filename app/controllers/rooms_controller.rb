@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   include MessageFormatHelper
 
   def login
-    @room = Room.find_by!(name: params[:id])
+    @room = Room.find_or_create_by(name: params[:id])
   end
 
   def show
