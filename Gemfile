@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby_version_file = File.expand_path(".ruby-version", __dir__)
+ruby File.read(ruby_version_file)
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0.1'
