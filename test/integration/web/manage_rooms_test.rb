@@ -55,6 +55,8 @@ class ManageRoomsTest < ActionDispatch::IntegrationTest
 
     login_with_username("my.new.username")
 
+    # wait for turbolinks visit to finish
+    find("#room-title")
     send_message("wow, I just renamed myself!")
 
     assert_messages("my.new.username: wow, I just renamed myself!")

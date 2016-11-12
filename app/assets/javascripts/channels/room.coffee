@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'turbolinks:load', ->
   if title = document.getElementById("room-title")
     try
       Notification.requestPermission() if Notification.permission != 'denied'

@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # Link preview (in chat): https://github.com/Ekito/bootstrap-linkpreview/blob/master/library/js/bootstrap-linkpreview.js
-$(document).on 'page:change', ->
+$(document).on 'turbolinks:load', ->
   $('#login-username').val(Cookies.get($("#login-title strong").text() + "_username"))
   $('#login-form').validator().on 'submit', (e) ->
     unless e.isDefaultPrevented()
